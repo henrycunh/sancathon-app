@@ -1,0 +1,59 @@
+<script>
+import Sidebar from '@/components/Sidebar'
+import Topbar from '@/components/Topbar'
+import { mapState } from 'vuex'
+
+export default {
+    components: {
+        Sidebar,
+        Topbar
+    },
+    computed: {
+        ...mapState('nav', ['sidebarVisible'])
+    }
+}
+</script>
+
+<template>
+    <div id="default">
+        <Topbar />
+        <main>
+            <Sidebar class="sidebar" />
+            <nuxt class="nuxt" />
+        </main>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700|Lato');
+
+#default {
+    & > main {
+        display: grid;
+        grid-gap: 0;
+        grid-template-columns: 300px 3fr;
+    }
+}
+</style>
+
+
+<style>
+html {
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+}
+</style>
